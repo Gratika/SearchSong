@@ -1,0 +1,26 @@
+
+.card{
+    min-height: 140px;
+    background-color: darkkhaki;
+    border-color: darkkhaki;
+
+}
+
+.img-fluid{
+   min-height: 140px;
+}
+#findRow{
+    width: 65%;
+    margin-right: 3px;
+}
+.mySize{
+
+    min-height: 600px;
+   padding-top: 200px;
+
+}
+.topBorder{
+    border-top: #282c34 solid 1px;
+    margin-top: 20px;
+    text-align: center;
+}

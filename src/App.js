@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+import {BrowserRouter, Route, Routes, useParams} from "react-router-dom";
+import AboutSong from "./components/songs/AboutSong";
+import StartPage from "./components/songs/StartPage";
+import SongsList from "./components/songs/SongList";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="app">
+          <BrowserRouter>
+              <Routes>
+                  <Route path="/" element= { <StartPage/>}></Route>
+                  <Route path="/:search" element= { <GoSearch/>}></Route>
+                  <Route path="aboutSong/:id" element = { <GoSong />}></Route>
+              </Routes>
+          </BrowserRouter>
+      </div>
   );
+}
+function GoSong(){
+    let {id} = useParams()
+    return(
+        <>
+            <AboutSong soungId={id}/>
+        </>
+    );
+}
+function GoSearch(){
+    let {search} = useParams()
+    return(
+        <>
+            <SongsList searchParam={search}/>
+        </>
+    );
 }
 
 export default App;
